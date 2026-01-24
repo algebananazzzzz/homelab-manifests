@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "50"
+spec:
+  project: default
+  destination:
+    namespace: observability
+    server: https://kubernetes.default.svc
+  sources:
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      targetRevision: 81.2.1
+      helm:
+        releaseName: kube-prometheus-stack
+        valueFiles:
+          - $values/apps/observability/prometheus/values.yaml
+    - repoURL: https://github.com/algebananazzzzz/homelab-manifests
+      targetRevision: main
+      ref: values
+    - repoURL: https://github.com/algebananazzzzz/homelab-manifests
+      targetRevision: main
+      path: apps/observability/prometheus/manifests
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

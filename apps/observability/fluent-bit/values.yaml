@@ -1,0 +1,11 @@
+testFramework:
+  enabled: false
+
+config:
+  outputs: |
+    [OUTPUT]
+        Name loki
+        Match *
+        Host loki.observability.svc.cluster.local
+        Port 3100
+        Labels job=fluent-bit

@@ -1,0 +1,17 @@
+alertmanager:
+  ingress:
+    enabled: false
+
+grafana:
+  ingress:
+    enabled: false
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      url: http://loki.observability.svc.cluster.local:3100
+      access: proxy
+      isDefault: false
+
+prometheus:
+  ingress:
+    enabled: false
