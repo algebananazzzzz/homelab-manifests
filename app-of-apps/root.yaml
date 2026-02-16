@@ -9,9 +9,9 @@ spec:
     namespace: argocd
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/algebananazzzzz/homelab-manifests
+    repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
     targetRevision: main
-    path: app-of-apps/apps
+    path: apps
   syncPolicy:
     automated:
       prune: true

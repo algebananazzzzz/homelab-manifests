@@ -1,32 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: external-secrets
+  name: cilium
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "20"
+    argocd.argoproj.io/sync-wave: "35"
 spec:
   project: default
   destination:
-    namespace: external-secrets
+    namespace: kube-system
     server: https://kubernetes.default.svc
   sources:
-    - repoURL: https://charts.external-secrets.io
-      chart: external-secrets
-      targetRevision: 1.2.1
+    - repoURL: https://helm.cilium.io
+      chart: cilium
+      targetRevision: 1.19.0
       helm:
-        releaseName: external-secrets
+        releaseName: cilium
         valueFiles:
-          - $values/apps/secrets/external-secrets/values.yaml
+          - $values/apps/networking/cilium/values.yaml
     - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
       ref: values
     - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
-      path: apps/secrets/external-secrets/manifests
+      path: apps/networking/cilium/manifests
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true

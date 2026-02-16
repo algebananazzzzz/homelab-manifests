@@ -1,8 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-  - ../../apps/secrets/secrets/application.yaml
-  - ../../apps/networking/tailscale/application.yaml
-  - ../../apps/observability/prometheus/application.yaml
-  - ../../apps/observability/loki/application.yaml
-  - ../../apps/observability/fluent-bit/application.yaml

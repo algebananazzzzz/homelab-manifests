@@ -18,7 +18,7 @@ spec:
         releaseName: loki
         valueFiles:
           - $values/apps/observability/loki/values.yaml
-    - repoURL: https://github.com/algebananazzzzz/homelab-manifests
+    - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
       ref: values
   syncPolicy:

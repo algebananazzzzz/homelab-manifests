@@ -18,10 +18,10 @@ spec:
         releaseName: tailscale-operator
         valueFiles:
           - $values/apps/networking/tailscale/values.yaml
-    - repoURL: https://github.com/algebananazzzzz/homelab-manifests
+    - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
       ref: values
-    - repoURL: https://github.com/algebananazzzzz/homelab-manifests
+    - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
       path: apps/networking/tailscale/manifests
   syncPolicy:

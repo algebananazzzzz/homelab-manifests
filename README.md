@@ -12,15 +12,14 @@ This repo uses ArgoCD for GitOps, Vault for secret storage, and External Secrets
 Phase 1 bootstrap (creates only Vault + External Secrets apps):
 
 ```bash
-kubectl apply -k app-of-apps/init/phase_1
+kubectl apply -f apps/secrets/vault/application.yaml \
+  -f apps/secrets/external-secrets/application.yaml
 ```
 
 Wait for ArgoCD to sync those two apps before proceeding.
 
 ## Repo Layout
 - `app-of-apps/` - root app-of-apps entrypoint (`app-of-apps/root.yaml`)
-- `app-of-apps/init/phase_1/` - bootstrap apps (Vault + External Secrets)
-- `app-of-apps/apps/` - root app-of-apps (actual apps)
 - `apps/secrets/vault/` - Vault Helm app
 - `apps/secrets/external-secrets/` - ESO Helm app + ClusterSecretStore
 - `apps/secrets/secrets/` - all ExternalSecrets (single place to view created secrets)
@@ -80,8 +79,8 @@ Root app-of-apps (actual apps):
 
 ```bash
 argocd app create homelab-root \
-  --repo https://github.com/algebananazzzzz/homelab-manifests \
-  --path app-of-apps/apps \
+  --repo git@github.com:algebananazzzzz/homelab-manifests.git \
+  --path apps \
   --dest-server https://kubernetes.default.svc \
   --dest-namespace argocd \
   --sync-policy automated \
@@ -90,7 +89,7 @@ argocd app create homelab-root \
 ```
 
 The declarative form of this app lives at `app-of-apps/root.yaml`.
-`app-of-apps/apps` contains the Phase 2 app list; Phase 1 stays manual to allow Vault initialization.
+`apps/` contains the app list; Phase 1 stays manual to allow Vault initialization.
 
 Phase 2 apps have automated sync disabled to enforce the manual intervention point.
 Use the ArgoCD UI to sync in order: `secrets` → `tailscale` → observability apps.

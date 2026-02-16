@@ -18,10 +18,10 @@ spec:
         releaseName: kube-prometheus-stack
         valueFiles:
           - $values/apps/observability/prometheus/values.yaml
-    - repoURL: https://github.com/algebananazzzzz/homelab-manifests
+    - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
       ref: values
-    - repoURL: https://github.com/algebananazzzzz/homelab-manifests
+    - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
       path: apps/observability/prometheus/manifests
   syncPolicy:
