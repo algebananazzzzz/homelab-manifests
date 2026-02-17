@@ -13,7 +13,7 @@ ingressController:
 
 gatewayAPI:
   enabled: true
-
+  
 k8sClientRateLimit:
   burst: 20
   qps: 10
