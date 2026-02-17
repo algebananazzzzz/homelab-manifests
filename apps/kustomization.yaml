@@ -7,6 +7,6 @@ resources:
   - storage/longhorn/application.yaml
   # - secrets/secrets/application.yaml
   # - networking/tailscale/application.yaml
-  # - observability/prometheus/application.yaml
+  - observability/prometheus/application.yaml
   # - observability/loki/application.yaml
   # - observability/fluent-bit/application.yaml
