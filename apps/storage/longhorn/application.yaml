@@ -1,23 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vault
+  name: longhorn
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "20"
+    argocd.argoproj.io/sync-wave: "10"
 spec:
   project: default
   destination:
-    namespace: vault
+    namespace: longhorn-system
     server: https://kubernetes.default.svc
   sources:
-    - repoURL: https://helm.releases.hashicorp.com
-      chart: vault
-      targetRevision: 0.32.0
+    - repoURL: https://charts.longhorn.io
+      chart: longhorn
+      targetRevision: 1.11.0
       helm:
-        releaseName: vault
+        releaseName: longhorn
         valueFiles:
-          - $values/apps/secrets/vault/values.yaml
+          - $values/apps/storage/longhorn/values.yaml
     - repoURL: git@github.com:algebananazzzzz/homelab-manifests.git
       targetRevision: main
       ref: values
