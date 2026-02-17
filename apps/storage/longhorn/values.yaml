@@ -3,5 +3,5 @@ httproute:
   parentRefs:
     - name: cilium-gateway
       namespace: gateway-system
-  path: /longhorn
+  path: /
   pathType: PathPrefix
