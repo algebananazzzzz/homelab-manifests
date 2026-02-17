@@ -15,6 +15,7 @@ spec:
       chart: kube-prometheus-stack
       targetRevision: 81.2.1
       helm:
+        skipCrds: false
         releaseName: kube-prometheus-stack
         valueFiles:
           - $values/apps/observability/prometheus/values.yaml
@@ -25,5 +26,9 @@ spec:
       targetRevision: main
       path: apps/observability/prometheus/manifests
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true
