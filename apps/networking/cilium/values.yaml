@@ -13,6 +13,9 @@ ingressController:
 
 gatewayAPI:
   enabled: true
+
+envoy:
+  enabled: true
   
 k8sClientRateLimit:
   burst: 20
