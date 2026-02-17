@@ -3,5 +3,7 @@ httproute:
   parentRefs:
     - name: cilium-gateway
       namespace: gateway-system
+  hostnames:
+    - longhorn.homelab.internal
   path: /
   pathType: PathPrefix
