@@ -27,3 +27,13 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+  # Ignore ALL auto-generated TLS certs in kube-system (Cilium, Hubble, etc.)
+  - group: ""
+    kind: Secret
+    namespace: kube-system
+    jqPathExpressions:
+      - '.data.ca.crt'
+      - '.data.ca.key'
+      - '.data.tls.crt'
+      - '.data.tls.key'
