@@ -30,7 +30,6 @@ spec:
   ignoreDifferences:
   - group: ""
     kind: Secret
-    name: cilium-ca
     namespace: kube-system
     jsonPointers:
     - /data/ca.crt
