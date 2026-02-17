@@ -6,6 +6,11 @@ cni:
 l2announcements:
   enabled: true
 
+ingressController:
+  enabled: true
+  loadbalancerMode: dedicated
+  default: true
+
 gatewayAPI:
   enabled: true
 
