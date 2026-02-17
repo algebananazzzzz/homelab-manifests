@@ -32,8 +32,5 @@ spec:
   - group: ""
     kind: Secret
     namespace: kube-system
-    jqPathExpressions:
-      - '.data.ca.crt'
-      - '.data.ca.key'
-      - '.data.tls.crt'
-      - '.data.tls.key'
+    jsonPointers:
+        - /data
