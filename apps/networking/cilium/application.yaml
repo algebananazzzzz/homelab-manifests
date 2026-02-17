@@ -27,12 +27,3 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-  ignoreDifferences:
-  - group: ""
-    kind: Secret
-    namespace: kube-system
-    jsonPointers:
-    - /data/ca.crt
-    - /data/ca.key
-    - /data/tls.crt
-    - /data/tls.key
