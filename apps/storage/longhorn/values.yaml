@@ -1,7 +1,7 @@
-httproute:
-  enabled: true
-  parentRefs:
-    - name: cilium-gateway
-      namespace: gateway-system
-  path: /longhorn
-  pathType: PathPrefix
+# httproute:
+#   enabled: true
+#   parentRefs:
+#     - name: cilium-gateway
+#       namespace: gateway-system
+#   path: /longhorn
+#   pathType: PathPrefix
