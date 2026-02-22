@@ -5,6 +5,7 @@ resources:
   # - secrets/external-secrets/application.yaml
   - networking/cilium/application.yaml
   - storage/longhorn/application.yaml
+  - serverless/openfaas/application.yaml
   # - secrets/secrets/application.yaml
   # - networking/tailscale/application.yaml
   # - observability/prometheus/application.yaml

@@ -1,0 +1,8 @@
+functionNamespace: openfaas-fn
+
+# Keep the OpenFaaS gateway internal; publish via Gateway API.
+exposeServices: false
+serviceType: ClusterIP
+
+ingress:
+  enabled: false
