@@ -7,9 +7,7 @@ l2announcements:
   enabled: true
 
 ingressController:
-  enabled: true
-  loadbalancerMode: dedicated
-  default: true
+  enabled: false
 
 gatewayAPI:
   enabled: true
