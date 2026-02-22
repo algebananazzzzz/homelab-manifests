@@ -6,6 +6,7 @@ alertmanager:
     enabled: false
 
 grafana:
+  enabled: true
   ingress:
     enabled: false
   additionalDataSources:
@@ -18,3 +19,16 @@ grafana:
 prometheus:
   ingress:
     enabled: false
+  thanosService:
+    enabled: false
+  thanosServiceExternal:
+    enabled: false
+  thanosServiceMonitor:
+    enabled: false
+  thanosIngress:
+    enabled: false
+  prometheusSpec:
+    thanos: null
+
+thanosRuler:
+  enabled: false

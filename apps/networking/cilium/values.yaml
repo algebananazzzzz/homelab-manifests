@@ -14,6 +14,12 @@ ingressController:
 gatewayAPI:
   enabled: true
 
+hubble:
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+
 envoy:
   enabled: true
   
